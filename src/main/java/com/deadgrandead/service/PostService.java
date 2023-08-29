@@ -3,10 +3,8 @@ package com.deadgrandead.service;
 import com.deadgrandead.exception.NotFoundException;
 import com.deadgrandead.model.Post;
 import com.deadgrandead.repository.PostRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
 public class PostService {
     private final PostRepository repository;
 

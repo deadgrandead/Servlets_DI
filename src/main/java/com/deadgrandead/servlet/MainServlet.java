@@ -1,5 +1,6 @@
 package com.deadgrandead.servlet;
 
+import com.deadgrandead.config.JavaConfig;
 import com.deadgrandead.controller.PostController;
 import com.deadgrandead.repository.PostRepository;
 import com.deadgrandead.service.PostService;
@@ -22,7 +23,7 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() {
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.deadgrandead");
+        ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
         controller = context.getBean(PostController.class);
     }
 
