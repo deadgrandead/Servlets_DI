@@ -3,6 +3,8 @@ package com.deadgrandead.servlet;
 import com.deadgrandead.controller.PostController;
 import com.deadgrandead.repository.PostRepository;
 import com.deadgrandead.service.PostService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,9 +22,8 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() {
-        final var repository = new PostRepository();
-        final var service = new PostService(repository);
-        controller = new PostController(service);
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.deadgrandead");
+        controller = context.getBean(PostController.class);
     }
 
     @Override
